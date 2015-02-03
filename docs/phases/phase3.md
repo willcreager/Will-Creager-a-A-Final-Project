@@ -21,10 +21,10 @@
 
 ### Views
 * PostForm
+* BlogForm
 * BlogShow
 * PostShow
 
 ## Gems/Libraries
-* Filepicker
 * Markdown-js
 * Bootstrap Markdown

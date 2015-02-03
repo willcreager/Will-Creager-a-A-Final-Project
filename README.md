@@ -52,7 +52,16 @@ other people's blogs as well.
 
 [Details][phase-three]
 
-### Phase 4: Subscriptions and User Feeds (~2-3 days)
+### Phase 4: Searching for Blogs (~1-2 days)
+I'll create a nav bar at the top of the page so that when you hover over a
+league the bar will drop down, displaying a list of all the teams in that
+league. Users can then click on a specific team, and it'll redirect them to an
+index of blogs whose tag matches the selected team. By the end of this phase,
+users can easily see a list of blogs about their favorite teams.
+
+[Details][phase-four]
+
+### Phase 5: Subscriptions and User Feeds (~2-3 days)
 First I'll add a button next that says either 'subscribe' or 'unsubscribe'
 depending on the current subscription status when on the show page of another
 user's blogs. I'll then add a `feed` route that uses the `current_user`'s
@@ -61,15 +70,6 @@ chronologically. On the Backbone side, I'll make a `FeedPosts` collection that
 fetches from the new route, then create a `FeedShow` view that uses the new
 collection. By the end of this phase, users can subscribe to blogs and then view
 a feed of recent posts from their subscribed blogs.
-
-[Details][phase-four]
-
-### Phase 5: Searching for Blogs (~1-2 days)
-I'll create a nav bar at the top of the page so that when you hover over a
-league the bar will drop down, displaying a list of all the teams in that
-league. Users can then click on a specific team, and it'll redirect them to an
-index of blogs whose tag matches the selected team. By the end of this phase,
-users can easily see a list of blogs about their favorite teams.
 
 [Details][phase-five]
 

@@ -37,13 +37,6 @@ id          | integer   | not null, primary key
 league_id   | integer   | not null, foreign key (references leagues)
 team_name   | string    | not null, unique
 
-## taggings
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-post_id     | integer   | not null, foreign key (references posts)
-team_id     | integer   | not null, foreign key (references team tags)
-
 ## users
 column name     | data type | details
 ----------------|-----------|-----------------------

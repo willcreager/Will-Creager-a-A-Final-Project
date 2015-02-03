@@ -1,21 +1,23 @@
-# Phase 4: Subscriptions and User Feeds (~2-3 days)
+# Phase 4: Searching for Blogs (~1-2 days)
 
 ## Rails
 ### Models
 
 ### Controllers
-Api::PostsController (feed)
+Api::BlogsController (search)
+Api::PostsController (search)
 
 ### Views
-posts/feed.json.jbuilder
 
 ## Backbone
 ### Models
 
 ### Collections
-* FeedPosts
+* SearchBlogs
+* SearchPosts
 
 ### Views
-* FeedShow
+* BlogSearchItem
+* SearchShow
 
 ## Gems/Libraries
