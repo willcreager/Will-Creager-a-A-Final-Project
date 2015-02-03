@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SpumblrApp</title>
+  <title>NinetyNineCatsDay1</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<% if flash[:notice] %>
+  <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<% if flash[:errors] %>
+  <div class="errors"><%= flash[:errors] %></div>
+<% end %>
+
+<% if current_user %>
+  <h1><%= "Welcome, #{current_user.username}!" %></h1>
+  <%= render 'shared/logout' %>
+<% else %>
+  <%= link_to "Sign Up", new_user_url %>
+  <%= link_to "Sign In", new_session_url %>
+<% end %>
 
 <%= yield %>
 
