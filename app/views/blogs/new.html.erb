@@ -1,0 +1,32 @@
+<h1>Create new blog!</h1>
+
+<form action=<%= blogs_url %> method="POST">
+  <input
+  type="hidden"
+  name="authenticity_token"
+  value="<%= form_authenticity_token %>">
+
+  <label for="blog_title">Blog Title</label>
+  <input
+  type="text"
+  name="blog[title]"
+  id="blog_title"
+  value="<%= @blog.title %>">
+  <br>
+
+  <label for="team_tag_name">Team Name</label>
+
+  <select id="team_tag_name" name="blog[team_tag_id]">
+    <% @teams.each do |team| %>
+      <option value="<%= team.id %>"><%= team.name %></option>
+    <% end %>
+  </select>
+  <br>
+
+  <!--  add dropdown for teams -->
+  <!-- <label for="user_password">Password</label>
+  <input type="password" name="user[password]" id="user_password">
+  <br> -->
+
+  <input type="submit" value="Create blog!">
+</form>

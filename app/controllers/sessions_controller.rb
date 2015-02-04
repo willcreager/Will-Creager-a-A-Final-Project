@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user_name = params[:user][:username]
+    username = params[:user][:username]
     password = params[:user][:password]
     user = User.find_by_credentials(username, password)
 
@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
       render :new
     else
       log_in!(user)
-      render :new
+      render json: user
     end
   end
 

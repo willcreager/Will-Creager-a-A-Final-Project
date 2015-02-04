@@ -15,24 +15,11 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_signed_in_users
-    redirect_to cats_url if current_user
+    # redirect_to cats_url if current_user
   end
 
   def redirect_unsigned_in_users
-    redirect_to cats_url unless current_user
-  end
-
-  def must_own_cat
-    rental_request = CatRentalRequest.find(params[:id])
-    cat = Cat.find(rental_request.cat_id)
-
-    if params[:controller] == "cat_rental_requests"
-      flash[:notice] = "Can't accept/deny rental request of someone else's cat!"
-    elsif params[:controller] == "cats"
-      flash[:notice] = "Can't edit someone else's cat!"
-    end
-
-    redirect_to(:back) unless cat.user_id == current_user.id
+    # redirect_to cats_url unless current_user
   end
 
 end

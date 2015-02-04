@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  username        :string(255)      not null
+#  password_digest :string(255)      not null
+#  session_token   :string(255)      not null
+#  created_at      :datetime
+#  updated_at      :datetime
+#
+
 class User < ActiveRecord::Base
   attr_reader :password
 
@@ -6,6 +18,9 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true }
 
   after_initialize :ensure_session_token
+
+  has_many :blogs, foreign_key: :author_id
+  has_many :blogged_teams, through: :blogs, source: :team
 
   def ensure_session_token
     self.session_token ||= SecureRandom::urlsafe_base64

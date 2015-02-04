@@ -10,11 +10,16 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in!(@user)
-      render :new
+      render json: @user
     else
       flash.now[:errors] = @user.errors.full_messages
       render :new
     end
+  end
+
+  def show
+    @user = User.find(params[:id])
+    render json: @user
   end
 
   private

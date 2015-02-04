@@ -11,10 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150203192929) do
+ActiveRecord::Schema.define(version: 20150203232214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "blogs", force: true do |t|
+    t.integer  "author_id",   null: false
+    t.integer  "team_tag_id", null: false
+    t.string   "title",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "blogs", ["author_id"], name: "index_blogs_on_author_id", using: :btree
+  add_index "blogs", ["team_tag_id"], name: "index_blogs_on_team_tag_id", using: :btree
+
+  create_table "leagues", force: true do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "teams", force: true do |t|
+    t.string   "name",       null: false
+    t.integer  "league_id",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "teams", ["league_id"], name: "index_teams_on_league_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username",        null: false
