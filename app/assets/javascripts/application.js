@@ -16,7 +16,9 @@
 //= require bootstrap
 //= require underscore
 //= require backbone
+//= require serializeJSON
 //= require spumblr_app
+//= require_tree ./utils
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections

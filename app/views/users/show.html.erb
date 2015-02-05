@@ -1,3 +1,7 @@
 <h1>Logged in as <%= @user.username %></h1>
 
 <a href="/#blogs/new">Create new blog!</a>
+<br>
+<% @user.blogs.each do |blog| %>
+  <a href="/#blogs/<%= blog.id %>"><%= blog.title %>, <%= blog.team.name %></a><br>
+<% end %>

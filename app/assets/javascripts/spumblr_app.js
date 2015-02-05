@@ -6,10 +6,7 @@ window.SpumblrApp = {
   initialize: function() {
     new SpumblrApp.Routers.Router
     Backbone.history.start();
-    this.current_user_id = SpumblrAppCU();
+    SpumblrApp.current_user_id = SpumblrAppCU();
+    SpumblrApp.Collections.teams.fetch();
   }
 };
-
-$(document).ready(function(){
-  SpumblrApp.initialize();
-});

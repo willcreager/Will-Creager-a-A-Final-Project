@@ -1,13 +1,15 @@
 <h1><%= blog.escape("title") %></h1>
 <br>
 <br>
-<h2><%= blog.escape("author_username") %></h2>
-<h2><%= blog.escape("team_name") %></h2>
+<h2>Author: <%= blog.escape("author_username") %></h2>
+<h2>Team: <%= blog.escape("team_name") %></h2>
 
 <div class='posts-window'>
   <div id="posts">
   </div>
 
-  <div id="post-form">
-  </div>
+  <% if (SpumblrApp.current_user_id && SpumblrApp.current_user_id == blog.get("author_id")) { %>
+    <div id="post-form">
+    </div>
+  <% } %>
 </div>

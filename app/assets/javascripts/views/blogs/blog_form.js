@@ -20,14 +20,14 @@ SpumblrApp.Views.BlogFormView = Backbone.View.extend({
 
   createBlog: function(event) {
     event.preventDefault();
-    var attrs = this.$el.serializeJSON(),
+    var attrs = $(event.currentTarget).serializeJSON(),
     that = this;
 
     this.model.set(attrs);
     this.model.save({}, {
       success: function () {
         that.collection.add(that.model, { merge: true });
-        Backbone.history.navigate("", { trigger: true });
+        Backbone.history.navigate("#blogs/"+that.model.id, { trigger: true });
       }
     });
   }

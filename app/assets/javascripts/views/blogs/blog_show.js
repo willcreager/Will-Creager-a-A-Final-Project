@@ -1,4 +1,4 @@
-SpumblrApp.Views.BlogShow = Backbone.View.extend({
+SpumblrApp.Views.BlogShow = Backbone.CompositeView.extend({
   template: JST['blogs/show'],
 
   initialize: function() {
@@ -6,6 +6,7 @@ SpumblrApp.Views.BlogShow = Backbone.View.extend({
     this.collection = this.model.posts();
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.collection, "add", this.addPost);
+    this.renderPostForm();
   },
 
   addPost: function (post) {
@@ -20,6 +21,8 @@ SpumblrApp.Views.BlogShow = Backbone.View.extend({
       blog: this.model
     });
     this.$el.html(renderedContent);
+    this.attachSubviews();
+    this.renderPosts();
     return this;
   },
 

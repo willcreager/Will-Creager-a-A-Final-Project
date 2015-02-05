@@ -10,7 +10,7 @@ class Api::BlogsController < ApplicationController
     @blog.author_id = current_user.id
 
     if @blog.save
-      redirect_to blog_url(@blog)
+      render json: @blog
     else
       flash.now[:errors] = @blog.errors.full_messages
       render :new
