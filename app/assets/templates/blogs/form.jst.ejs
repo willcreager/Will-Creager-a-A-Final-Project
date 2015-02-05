@@ -1,0 +1,22 @@
+<h1>Create new blog!</h1>
+
+<form>
+  <label for="blog_title">Blog Title</label>
+  <input
+  type="text"
+  name="blog[title]"
+  id="blog_title"
+  value="">
+  <br>
+
+  <label for="team_tag_name">Team Name</label>
+
+  <select id="team_tag_name" name="blog[team_tag_id]">
+    <% teams.forEach(function (team) { %>
+      <option value="<%= team.id %>"><%= team.get("name") %></option>
+    <% }) %>
+  </select>
+  <br>
+
+  <input type="submit" value="Create blog!">
+</form>

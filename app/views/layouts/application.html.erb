@@ -7,24 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<% if flash[:notice] %>
-  <div class="notice"><%= flash[:notice] %></div>
-<% end %>
-
-<% if flash[:errors] %>
-  <div class="errors"><%= flash[:errors] %></div>
-<% end %>
-
-<% if current_user %>
-  <h1><%= "Welcome, #{current_user.username}!" %></h1>
-  <%= render 'shared/logout' %>
-<% else %>
-  <%= link_to "Sign Up", new_user_url %>
-  <%= link_to "Sign In", new_session_url %>
-<% end %>
+  <%= render partial: "layouts/header" %>
 
 <%= yield %>
 
+<script>
+  window.SpumblrAppCU = function() {
+      return <%= current_user.id if current_user %> 
+  }
+</script>
 </body>
 </html>

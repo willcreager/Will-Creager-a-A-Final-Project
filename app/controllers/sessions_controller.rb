@@ -17,19 +17,19 @@ class SessionsController < ApplicationController
       render :new
     else
       log_in!(user)
-      render json: user
+      redirect_to user_url(user)
     end
   end
 
   def destroy
     current_user.reset_session_token!
     session[:session_token] = nil
-    render :new
+    redirect_to new_session_url
   end
 
   private
 
-  def user_params
-    params.require(:user).permit(:username, :password)
-  end
+    def user_params
+      params.require(:user).permit(:username, :password)
+    end
 end

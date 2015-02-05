@@ -1,4 +1,4 @@
-class BlogsController < ApplicationController
+class Api::BlogsController < ApplicationController
   def new
     @blog = Blog.new
     @teams = Team.all
@@ -18,7 +18,7 @@ class BlogsController < ApplicationController
   end
 
   def show
-    @blog = Blog.find(params[:id])
+    @blog = Blog.includes(:author).find(params[:id])
     render :show
   end
 
