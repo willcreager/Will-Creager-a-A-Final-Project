@@ -1,0 +1,6 @@
+<h1><%= team.escape("name") %><h1>
+
+<% blogs.forEach(function(blog) { %>
+  <h3>Blog title: <%= blog.escape("title") %><h3>
+  <h4>Blog author: <%= blog.escape("author") %><h4>
+<% }) %>

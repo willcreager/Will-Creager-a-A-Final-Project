@@ -1,4 +1,8 @@
 SpumblrApp.Collections.Blogs = Backbone.Collection.extend({
+  initialize: function (options) {
+    this.team = options.team;
+  },
+
   model: SpumblrApp.Models.Blog,
   url: 'api/blogs',
 
@@ -17,4 +21,5 @@ SpumblrApp.Collections.Blogs = Backbone.Collection.extend({
     return blog;
   }
 });
-SpumblrApp.Collections.blogs = new SpumblrApp.Collections.Blogs
+
+SpumblrApp.Collections.blogs = new SpumblrApp.Collections.Blogs({team: null})

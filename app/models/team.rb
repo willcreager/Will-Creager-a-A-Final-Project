@@ -14,5 +14,5 @@ class Team < ActiveRecord::Base
   validates :league_id, presence: true
 
   belongs_to :league
-  has_many :blogs
+  has_many :blogs, foreign_key: :team_tag_id
 end

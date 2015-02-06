@@ -4,9 +4,9 @@ window.SpumblrApp = {
   Views: {},
   Routers: {},
   initialize: function() {
+    SpumblrApp.current_user_id = SpumblrAppCU();
     new SpumblrApp.Routers.Router
     Backbone.history.start();
-    SpumblrApp.current_user_id = SpumblrAppCU();
     SpumblrApp.Collections.teams.fetch();
   }
 };

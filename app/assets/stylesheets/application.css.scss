@@ -19,3 +19,9 @@
  body {
    padding-top: 60px;
  }
+
+ .dropdown-menu {
+   max-height: 400px;
+   overflow: hidden;
+   overflow-y: auto;
+ }

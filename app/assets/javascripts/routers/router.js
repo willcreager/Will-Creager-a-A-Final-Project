@@ -6,7 +6,8 @@ SpumblrApp.Routers.Router = Backbone.Router.extend({
   routes: {
     'blogs': 'blogsIndex',
     'blogs/new': 'blogsNew',
-    'blogs/:id': 'blogsShow'
+    'blogs/:id': 'blogsShow',
+    'teams/:id': 'teamsShow'
   },
 
   blogsShow: function(id) {
@@ -24,6 +25,12 @@ SpumblrApp.Routers.Router = Backbone.Router.extend({
     });
 
     this._swapView(formView);
+  },
+
+  teamsShow: function(id) {
+    var team = SpumblrApp.Collections.teams.getOrFetch(id);
+    var teamView = new SpumblrApp.Views.TeamShow({ model: team });
+    this._swapView(teamView);
   },
 
   _swapView: function (view) {

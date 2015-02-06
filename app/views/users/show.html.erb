@@ -1,6 +1,8 @@
-<h1>Logged in as <%= @user.username %></h1>
+<h1><%= @user.username %></h1>
 
-<a href="/#blogs/new">Create new blog!</a>
+<% if current_user == @user %>
+  <a href="/#blogs/new">Create new blog!</a>
+<% end %>
 <br>
 <% @user.blogs.each do |blog| %>
   <a href="/#blogs/<%= blog.id %>"><%= blog.title %>, <%= blog.team.name %></a><br>

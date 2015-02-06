@@ -18,7 +18,8 @@ SpumblrApp.Views.BlogShow = Backbone.CompositeView.extend({
 
   render: function () {
     var renderedContent = this.template({
-      blog: this.model
+      blog: this.model,
+      current_user_id: SpumblrApp.current_user_id
     });
     this.$el.html(renderedContent);
     this.attachSubviews();
