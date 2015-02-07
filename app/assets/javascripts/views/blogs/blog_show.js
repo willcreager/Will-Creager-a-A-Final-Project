@@ -2,7 +2,7 @@ SpumblrApp.Views.BlogShow = Backbone.CompositeView.extend({
   template: JST['blogs/show'],
 
   initialize: function() {
-    $('body').css('background-color', 'rgb(0, 112, 159)');
+    $('body').css('background-color', 'lightblue');
     this.collection = this.model.posts();
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.collection, "add", this.addPost);
@@ -23,7 +23,6 @@ SpumblrApp.Views.BlogShow = Backbone.CompositeView.extend({
     });
     this.$el.html(renderedContent);
     this.attachSubviews();
-    this.renderPosts();
     return this;
   },
 

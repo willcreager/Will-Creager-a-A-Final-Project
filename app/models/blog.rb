@@ -17,6 +17,8 @@ class Blog < ActiveRecord::Base
   belongs_to :team, foreign_key: :team_tag_id
   has_one :league, through: :team
   has_many :posts
+  has_many :followings
+  has_many :followers, through: :followings, source: :user
 
   def is_owner?(user)
     user.id == self.author_id

@@ -4,6 +4,12 @@
   <a href="/#blogs/new">Create new blog!</a>
 <% end %>
 <br>
+<h2>Authored blogs:</h2>
 <% @user.blogs.each do |blog| %>
   <a href="/#blogs/<%= blog.id %>"><%= blog.title %>, <%= blog.team.name %></a><br>
+<% end %>
+<h2>Followed blogs:</h2>
+<% @user.followed_blogs.each do |blog| %>
+  <a href="/#blogs/<%= blog.id %>"><%= blog.title %>, <%= blog.team.name %></a>
+  Author: <%= blog.author.username %><br>
 <% end %>

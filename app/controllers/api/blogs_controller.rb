@@ -18,7 +18,7 @@ class Api::BlogsController < ApplicationController
   end
 
   def show
-    @blog = Blog.includes(:author).find(params[:id])
+    @blog = Blog.includes(:author, :followers).find(params[:id])
     render :show
   end
 

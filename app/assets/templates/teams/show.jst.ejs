@@ -1,6 +1,6 @@
 <h1><%= team.escape("name") %><h1>
 
 <% blogs.forEach(function(blog) { %>
-  <h3>Blog title: <%= blog.escape("title") %><h3>
-  <h4>Blog author: <%= blog.escape("author") %><h4>
+  <div class="block"><h3>Blog title: <a href="/#blogs/<%= blog.id %>"><%= blog.escape("title") %></a><h3>
+  <h4>Blog author: <a href="/users/<%= blog.escape("author_id") %>"><%= blog.escape("author") %></a><h4></div>
 <% }) %>

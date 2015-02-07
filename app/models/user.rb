@@ -21,6 +21,8 @@ class User < ActiveRecord::Base
 
   has_many :blogs, foreign_key: :author_id
   has_many :blogged_teams, through: :blogs, source: :team
+  has_many :followings
+  has_many :followed_blogs, through: :followings, source: :blog
 
   def ensure_session_token
     self.session_token ||= SecureRandom::urlsafe_base64

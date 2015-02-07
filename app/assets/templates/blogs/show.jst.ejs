@@ -1,8 +1,21 @@
-<h1><%= blog.escape("title") %></h1>
-<br>
-<br>
-<h2>Author: <%= blog.escape("author_username") %></h2>
-<h2>Team: <%= blog.escape("team_name") %></h2>
+<div class="block"><h1><%= blog.escape("title") %></h1>
+<h2>Author: <a href="/users/<%= blog.escape("author_id") %>">
+               <%= blog.escape("author_username") %></a></h2>
+<h2>Team: <a href="/#teams/<%= blog.escape("team_id") %>">
+               <%= blog.escape("team_name") %></a></h2></div>
+
+<% var followed = false %>
+<% if (current_user_id) { %>
+  <% blog.followers().forEach(function(follower) { %>
+    <% if (current_user_id == follower.id) { %>
+      <% followed = true %>
+    <% } %>
+  <% }) %>
+<% } %>
+
+<% if (followed === true) { %>
+  <h3>Followed</h3>
+<% } %>
 
 <div class='posts-window'>
   <div id="posts">
@@ -13,3 +26,7 @@
       </div>
     <% } %>
 </div>
+<h3>Followers:<h3>
+<% blog.followers().forEach(function(follower) { %>
+  <a href="users/<%= follower.id %>"><%= follower.escape("username") %></a>
+<% }) %>

@@ -5,8 +5,7 @@ SpumblrApp.Views.PostForm = Backbone.View.extend({
 
   events: {
     'click a': 'showForm',
-    'click .close': 'hideForm',
-    'submit' : 'create',
+    'submit' : 'create'
   },
 
   create: function (event) {
@@ -18,6 +17,7 @@ SpumblrApp.Views.PostForm = Backbone.View.extend({
     }, { wait: true });
     this.$('textarea').val('');
     this.$('textarea').focus();
+    this.hideForm();
   },
 
   render: function () {
