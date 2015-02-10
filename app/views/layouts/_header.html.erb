@@ -24,7 +24,7 @@
         <ul class="dropdown-menu" role="menu">
           <% Team.all.each do |team| %>
             <% if team.league_id == 1 %>
-              <li><a href="/#teams/<%= team.id %>"><%= team.name %></a></li>
+              <li><a href="/#teams/<%= team.id %>"><%= team.name %>, <%= team.blogs.length %></a></li>
             <% end %>
           <% end %>
         </ul>
@@ -41,7 +41,7 @@
         <ul class="dropdown-menu" role="menu">
           <% Team.all.each do |team| %>
             <% if team.league_id == 2 %>
-              <li><a href="/#teams/<%= team.id %>"><%= team.name %></a></li>
+              <li><a href="/#teams/<%= team.id %>"><%= team.name %>, <%= team.blogs.length %></a></li>
             <% end %>
           <% end %>
         </ul>
@@ -58,11 +58,13 @@
         <ul class="dropdown-menu" role="menu">
           <% Team.all.each do |team| %>
             <% if team.league_id == 3 %>
-              <li><a href="/#teams/<%= team.id %>"><%= team.name %></a></li>
+              <li><a href="/#teams/<%= team.id %>"><%= team.name %>, <%= team.blogs.length %></a></li>
             <% end %>
           <% end %>
         </ul>
       </li>
+
+      <li><%= link_to "All users", users_url %></li>
 
       <% if signed_in? %>
         <li><%= link_to "#{current_user.username}", user_url(current_user) %></li>

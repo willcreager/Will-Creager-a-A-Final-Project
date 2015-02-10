@@ -4,17 +4,12 @@
 <h2>Team: <a href="/#teams/<%= blog.escape("team_id") %>">
                <%= blog.escape("team_name") %></a></h2></div>
 
-<% var followed = false %>
-<% if (current_user_id) { %>
-  <% blog.followers().forEach(function(follower) { %>
-    <% if (current_user_id == follower.id) { %>
-      <% followed = true %>
-    <% } %>
-  <% }) %>
-<% } %>
-
-<% if (followed === true) { %>
-  <h3>Followed</h3>
+<% if (current_user_id && current_user_id != blog.escape("author_id")) { %>
+  <% if (blog.followState(SpumblrApp.current_user_id)) { %>
+    <button class="toggleFollow">Unfollow!</button>
+  <% } else { %>
+    <button class="toggleFollow">Follow!</button>
+  <% } %>
 <% } %>
 
 <div class='posts-window'>
@@ -28,5 +23,5 @@
 </div>
 <h3>Followers:<h3>
 <% blog.followers().forEach(function(follower) { %>
-  <a href="users/<%= follower.id %>"><%= follower.escape("username") %></a>
+  <a href="users/<%= follower.user_id %>"><%= follower.escape("follower_username") %></a>
 <% }) %>

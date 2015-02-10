@@ -2,5 +2,6 @@
 
 <% blogs.forEach(function(blog) { %>
   <div class="block"><h3>Blog title: <a href="/#blogs/<%= blog.id %>"><%= blog.escape("title") %></a><h3>
-  <h4>Blog author: <a href="/users/<%= blog.escape("author_id") %>"><%= blog.escape("author") %></a><h4></div>
+  <h4>Blog author: <a href="/users/<%= blog.escape("author_id") %>"><%= blog.escape("author") %></a><h4>
+  <h4>Posts: <%= blog.posts().length %></h4></div>
 <% }) %>

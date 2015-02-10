@@ -23,4 +23,8 @@ class Blog < ActiveRecord::Base
   def is_owner?(user)
     user.id == self.author_id
   end
+
+  def followed_by?(user)
+    followers.include?(user)
+  end
 end

@@ -10,7 +10,7 @@ SpumblrApp.Models.Team = Backbone.Model.extend({
 
   parse: function (response) {
     if (response.blogs) {
-      this.blogs().set(response.blogs);
+      this.blogs().set(response.blogs, {parse: true});
       delete response.blogs;
     }
     return response;

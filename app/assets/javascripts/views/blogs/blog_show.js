@@ -9,6 +9,34 @@ SpumblrApp.Views.BlogShow = Backbone.CompositeView.extend({
     this.renderPostForm();
   },
 
+  events: {
+    "click .toggleFollow": "toggleFollow"
+  },
+
+  toggleFollow: function(){
+    var that = this;
+    if (this.model.followState(SpumblrApp.current_user_id)) {
+      //find the follower model and destroy
+      var following = this.model.following();
+      following.destroy({
+        success: function () {
+          debugger
+          that.model.following().set({ id: null });
+          that.render();
+        }
+      });
+    } else {
+      //make a new follow, save it, add it to the followers() collection
+      var following = this.model.following();
+      following.save({}, {
+        success: function(following, response) {
+          that.model.followers().add(following, { merge: true });
+          that.render();
+        }
+      })
+    }
+  },
+
   addPost: function (post) {
     var view = new SpumblrApp.Views.PostShow({
       model: post

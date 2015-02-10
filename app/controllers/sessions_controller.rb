@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
 
     if user.nil?
       @user = User.new(user_params)
-      flash.now[:notice] = "Invalid login"
+      flash.now[:errors] = ["Invalid login"]
       render :new
     else
       log_in!(user)

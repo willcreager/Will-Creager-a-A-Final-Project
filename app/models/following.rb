@@ -11,7 +11,7 @@
 
 class Following < ActiveRecord::Base
   validates :user_id, :blog_id, presence: true
-
+  validates :user_id, uniqueness: { scope: :blog_id }
   belongs_to :blog
   belongs_to :user
 end
