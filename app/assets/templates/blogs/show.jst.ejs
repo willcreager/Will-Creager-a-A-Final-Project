@@ -1,5 +1,5 @@
 <div class="block"><h1><%= blog.escape("title") %></h1>
-<h2>Author: <a href="/users/<%= blog.escape("author_id") %>">
+<h2>Author: <a href="/users/<%= blog.escape("author_id") %>" >
                <%= blog.escape("author_username") %></a></h2>
 <h2>Team: <a href="/#teams/<%= blog.escape("team_id") %>">
                <%= blog.escape("team_name") %></a></h2></div>
@@ -21,7 +21,11 @@
       </div>
     <% } %>
 </div>
-<h3>Followers:<h3>
+<h3 class="follower-heading">Followers: <%= blog.followers().length %><h3>
 <% blog.followers().forEach(function(follower) { %>
-  <a href="users/<%= follower.user_id %>"><%= follower.escape("follower_username") %></a>
+  <li class="list-group-item follower-show">
+    <a href="users/<%= follower.escape("user_id") %>">
+      <%= follower.escape("follower_username") %>
+    </a>
+  </li>
 <% }) %>

@@ -1,7 +1,16 @@
-<h1><%= team.escape("name") %><h1>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <div class="centered">
+      <h1 class="team-index-header"><%= team.escape("name") %></h1>
+    </div>
 
-<% blogs.forEach(function(blog) { %>
-  <div class="block"><h3>Blog title: <a href="/#blogs/<%= blog.id %>"><%= blog.escape("title") %></a><h3>
-  <h4>Blog author: <a href="/users/<%= blog.escape("author_id") %>"><%= blog.escape("author") %></a><h4>
-  <h4>Posts: <%= blog.posts().length %></h4></div>
-<% }) %>
+      <% blogs.forEach(function(blog) { %>
+        <li class="list-group-item team-index">
+          <div class="block"><h3>Blog title: <a href="/#blogs/<%= blog.id %>"><%= blog.escape("title") %></a><h3>
+            <h4>Blog author: <a href="/users/<%= blog.escape("author_id") %>"><%= blog.escape("author") %></a><h4>
+              <h4>Posts: <%= blog.posts().length %></h4>
+          </div>
+        </li>
+      <% }) %>
+  </div>
+</div>

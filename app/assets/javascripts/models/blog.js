@@ -9,14 +9,6 @@ SpumblrApp.Models.Blog = Backbone.Model.extend({
   },
 
   followState: function (user_id) {
-    // console.log(user_id, SpumblrApp.current_user_id)
-    // for(var i = 0; i < this.followers().length; i++) {
-    //   var follower = this.followers().models[i];
-    //   if (user_id == follower.user_id) {
-    //     return true;
-    //   }
-    // }
-    // return false;
     return !this.following().isNew();
   },
 
@@ -26,7 +18,6 @@ SpumblrApp.Models.Blog = Backbone.Model.extend({
     }
     return this._following
   },
-
 
   followers: function () {
     if (!this._followers) {
@@ -46,7 +37,6 @@ SpumblrApp.Models.Blog = Backbone.Model.extend({
       this.followers().set([this.following()]);
       delete response.following;
     }
-
     if (response.followers) {
       this.followers().set(response.followers, { parse: true });
       delete response.followers;

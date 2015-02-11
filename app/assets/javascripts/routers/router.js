@@ -4,7 +4,7 @@ SpumblrApp.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
-    'blogs': 'blogsIndex',
+    // 'blogs': 'blogsIndex',
     'blogs/new': 'blogsNew',
     'blogs/:id': 'blogsShow',
     'teams/:id': 'teamsShow'

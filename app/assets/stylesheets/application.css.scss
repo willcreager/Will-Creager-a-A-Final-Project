@@ -19,32 +19,11 @@
  body {
    padding-top: 60px;
    background-image: url(balls2.jpg);
-  //  background-image-opacity: .2;
  }
 
  img {
    -webkit-filter: blur(10);
  }
- //
- //
- // body {
- //    position: relative;
- //    width: 100%;
- //    height: 100%;
- // }
- // body:after {
- //    padding-top: 60px;
- //    content : "";
- //    display: block;
- //    position: absolute;
- //    top: 0;
- //    left: 0;
- //    background-image: url("http://75thforcesupport.com/images/balls2.jpg");
- //    width: 100%;
- //    height: 100%;
- //    opacity : 0.2;
- //    z-index: -1;
- // }
 
  .dropdown-menu {
    max-height: 400px;

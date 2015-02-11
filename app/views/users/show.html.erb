@@ -1,15 +1,38 @@
-<h1><%= @user.username %></h1>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <div class="centered">
+      <h1 class="users-show-header"><%= @user.username %></h1>
+    </div>
 
-<% if current_user == @user %>
-  <a href="/#blogs/new">Create new blog!</a>
-<% end %>
-<br>
-<h2>Authored blogs:</h2>
-<% @user.blogs.each do |blog| %>
-  <a href="/#blogs/<%= blog.id %>"><%= blog.title %>, <%= blog.team.name %></a><br>
-<% end %>
-<h2>Followed blogs:</h2>
-<% @user.followed_blogs.each do |blog| %>
-  <a href="/#blogs/<%= blog.id %>"><%= blog.title %>, <%= blog.team.name %></a>
-  Author: <%= blog.author.username %><br>
-<% end %>
+    <% if current_user == @user %>
+      <a class="btn btn-default" href="/#blogs/new">Create new blog!</a>
+    <% end %>
+    <br>
+    <div class="centered">
+      <h2 class="users-show-header">Authored blogs:</h2>
+    </div>
+    <% @user.blogs.each do |blog| %>
+      <li class="list-group-item team-index">
+        <span class="badge">
+          <%= blog.posts().length %>
+        </span>
+        <a href="/#blogs/<%= blog.id %>">
+          <%= blog.title %>, <%= blog.team.name %>
+        </a>
+      </li><br>
+    <% end %>
+
+    <div class="centered">
+      <h2 class="users-show-header">Followed blogs:</h2>
+    </div>
+    <% @user.followed_blogs.each do |blog| %>
+      <li class="list-group-item team-index">
+        <span class="badge">
+          <%= blog.posts().length %>
+        </span>
+        <a href="/#blogs/<%= blog.id %>"><%= blog.title %>, <%= blog.team.name %></a>
+        Author: <%= blog.author.username %><br>
+      </li><br>
+    <% end %>
+  </div>
+</div>

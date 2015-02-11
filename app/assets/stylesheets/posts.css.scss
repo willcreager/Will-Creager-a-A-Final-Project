@@ -5,4 +5,12 @@
 #post-link {
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
+}
+
+li.post-show {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(0,0,0,.15);
 }

@@ -1,4 +1,18 @@
 .block {
   display: block;
   border: 1px solid black;
+  text-align: center;
+}
+
+li.team-index {
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(0,0,0,.15);
+}
+
+.team-index-header {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }

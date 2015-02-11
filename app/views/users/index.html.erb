@@ -1,6 +1,13 @@
-<h1>Users:</h1>
 <ul>
+<h1 class="list-group-item user-index-header">Users:</h1>
 <% @users.each do |user| %>
-    <li><a href="users/<%= user.id %>"><%= user.username %></a></li>
+    <li class="list-group-item user-index">
+      <span class="badge">
+        <%= user.blogs.count %>
+      </span>
+      <a href="users/<%= user.id %>">
+        <%= user.username %>
+      </a>
+    </li>
 <% end %>
 </ul>
