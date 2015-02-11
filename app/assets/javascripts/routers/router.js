@@ -4,10 +4,15 @@ SpumblrApp.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
-    // 'blogs': 'blogsIndex',
+    '': 'root',
     'blogs/new': 'blogsNew',
     'blogs/:id': 'blogsShow',
     'teams/:id': 'teamsShow'
+  },
+
+  root: function() {
+    var rootView = new SpumblrApp.Views.RootShow();
+    this._swapView(rootView);
   },
 
   blogsShow: function(id) {

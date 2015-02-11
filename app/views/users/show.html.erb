@@ -12,7 +12,7 @@
       <h2 class="users-show-header">Authored blogs:</h2>
     </div>
     <% @user.blogs.each do |blog| %>
-      <li class="list-group-item team-index">
+      <li class="list-group-item team-index animated slideInDown">
         <span class="badge">
           <%= blog.posts().length %>
         </span>
@@ -26,7 +26,7 @@
       <h2 class="users-show-header">Followed blogs:</h2>
     </div>
     <% @user.followed_blogs.each do |blog| %>
-      <li class="list-group-item team-index">
+      <li class="list-group-item team-index animated slideInUp">
         <span class="badge">
           <%= blog.posts().length %>
         </span>

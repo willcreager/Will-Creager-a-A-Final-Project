@@ -1,4 +1,4 @@
-<div class="block"><h1><%= blog.escape("title") %></h1>
+<div class="block animated bounce"><h1><%= blog.escape("title") %></h1>
 <h2>Author: <a href="/users/<%= blog.escape("author_id") %>" >
                <%= blog.escape("author_username") %></a></h2>
 <h2>Team: <a href="/#teams/<%= blog.escape("team_id") %>">
@@ -13,7 +13,7 @@
 <% } %>
 
 <div class='posts-window'>
-  <div id="posts">
+  <div id="posts" class="animated rotateIn">
   </div>
 
     <% if (current_user_id && current_user_id == blog.escape("author_id")) { %>
@@ -23,7 +23,7 @@
 </div>
 <h3 class="follower-heading">Followers: <%= blog.followers().length %><h3>
 <% blog.followers().forEach(function(follower) { %>
-  <li class="list-group-item follower-show">
+  <li class="list-group-item follower-show animated ">
     <a href="users/<%= follower.escape("user_id") %>">
       <%= follower.escape("follower_username") %>
     </a>
