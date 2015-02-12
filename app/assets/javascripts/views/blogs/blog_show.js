@@ -19,6 +19,7 @@ SpumblrApp.Views.BlogShow = Backbone.CompositeView.extend({
       //find the follower model and destroy
       var following = this.model.following();
       following.destroy({ success: function () {
+        debugger;
         that.model.following().set({ id: null });
         that.render();
         }
@@ -27,6 +28,7 @@ SpumblrApp.Views.BlogShow = Backbone.CompositeView.extend({
       //make a new follow, save it, add it to the followers() collection
       var following = this.model.following();
       following.save({}, { success: function(following, response) {
+        debugger;
         that.model.followers().add(following, { merge: true });
         that.render();
         }

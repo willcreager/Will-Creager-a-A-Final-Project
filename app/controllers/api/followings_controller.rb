@@ -4,7 +4,7 @@ class Api::FollowingsController < ApplicationController
     @following.user_id = current_user.id
 
     if @following.save
-      render json: @following
+      render :show
     else
       render json: @following.errors.full_messages, status: :unprocessable_entity
     end
@@ -14,6 +14,11 @@ class Api::FollowingsController < ApplicationController
     @following = Following.find(params[:id])
     @following.destroy
     render json: @following
+  end
+
+  def index
+    @followings = Following.all
+    render json: @followings
   end
 
   private
