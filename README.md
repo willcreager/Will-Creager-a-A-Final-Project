@@ -2,23 +2,22 @@
 
 [Heroku link][heroku]
 
-[heroku]: link TBD
+[heroku]: http://spumblr.herokuapp.com
 
 ## Minimum Viable Product
 My final proect is a clone of Tumblr built on Rails and Backbone, but with the
 twist that it is solely for sports blogs. It will be similar to Bleacher Report,
 except that all users can create blogs and write their own posts. Users can:
 
-- [ ] Create accounts
-- [ ] Create sessions (log in)
-- [ ] Create blogs
-- [ ] Tag what team (in the MLB, NBA or NFL) their blog is about
-- [ ] Create blog posts
-- [ ] View blogs and posts
-- [ ] Subscribe to blogs
-- [ ] View a feed of subscribed blogs
-- [ ] Search for blogs by leagues
-- [ ] Search for blogs by specific team tags
+- [x] Create accounts
+- [x] Create sessions (log in)
+- [x] Create blogs
+- [x] Tag what team (in the MLB, NBA or NFL) their blog is about
+- [x] Create blog posts
+- [x] View blogs and posts
+- [x] Subscribe to blogs
+- [x] View a feed of subscribed blogs
+- [x] Search for blogs by specific team tags
 
 ## Design Docs
 * [View Wireframes][views]
