@@ -24,7 +24,7 @@
         <ul class="dropdown-menu" role="menu">
           <% Team.all.each do |team| %>
             <% if team.league_id == 1 %>
-              <li><a href="/#teams/<%= team.id %>"><%= team.name %> <span class="badge"><%= team.blogs.length %></span></a></li>
+              <li><a class="team-<%= team.id %>" href="/#teams/<%= team.id %>"><%= team.name %> <span class="badge"><%= team.blogs.length %></span></a></li>
             <% end %>
           <% end %>
         </ul>
@@ -41,7 +41,7 @@
         <ul class="dropdown-menu" role="menu">
           <% Team.all.each do |team| %>
             <% if team.league_id == 2 %>
-              <li><a href="/#teams/<%= team.id %>"><%= team.name %> <span class="badge"><%= team.blogs.length %></span></a></li>
+              <li><a class="team-<%= team.id %>" href="/#teams/<%= team.id %>"><%= team.name %> <span class="badge"><%= team.blogs.length %></span></a></li>
             <% end %>
           <% end %>
         </ul>
@@ -58,7 +58,7 @@
         <ul class="dropdown-menu" role="menu">
           <% Team.all.each do |team| %>
             <% if team.league_id == 3 %>
-              <li><a href="/#teams/<%= team.id %>"><%= team.name %> <span class="badge"><%= team.blogs.length %></span></a></li>
+              <li><a class="team-<%= team.id %>" href="/#teams/<%= team.id %>"><%= team.name %> <span class="badge"><%= team.blogs.length %></span></a></li>
             <% end %>
           <% end %>
         </ul>
